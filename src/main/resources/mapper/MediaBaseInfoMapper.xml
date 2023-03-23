@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ymt.mapper.MediaBaseInfoMapper">
+  <resultMap id="BaseResultMap" type="com.ymt.domain.MediaBaseInfo">
+    <!--@mbg.generated-->
+    <!--@Table media_base_info-->
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="describe" jdbcType="VARCHAR" property="describe" />
+    <result column="date" jdbcType="VARCHAR" property="date" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="address_detail" jdbcType="VARCHAR" property="addressDetail" />
+    <result column="media_type" jdbcType="INTEGER" property="mediaType" />
+    <result column="type_id" jdbcType="INTEGER" property="typeId" />
+    <result column="user_id" jdbcType="BIGINT" property="userId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, title, `describe`, `date`, address, address_detail, media_type, type_id, user_id
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from media_base_info
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    <!--@mbg.generated-->
+    delete from media_base_info
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.ymt.domain.MediaBaseInfo">
+    <!--@mbg.generated-->
+    insert into media_base_info (id, title, `describe`, 
+      `date`, address, address_detail, 
+      media_type, type_id, user_id
+      )
+    values (#{id,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, #{describe,jdbcType=VARCHAR}, 
+      #{date,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, #{addressDetail,jdbcType=VARCHAR}, 
+      #{mediaType,jdbcType=INTEGER}, #{typeId,jdbcType=INTEGER}, #{userId,jdbcType=BIGINT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.ymt.domain.MediaBaseInfo">
+    <!--@mbg.generated-->
+    insert into media_base_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="title != null">
+        title,
+      </if>
+      <if test="describe != null">
+        `describe`,
+      </if>
+      <if test="date != null">
+        `date`,
+      </if>
+      <if test="address != null">
+        address,
+      </if>
+      <if test="addressDetail != null">
+        address_detail,
+      </if>
+      <if test="mediaType != null">
+        media_type,
+      </if>
+      <if test="typeId != null">
+        type_id,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="describe != null">
+        #{describe,jdbcType=VARCHAR},
+      </if>
+      <if test="date != null">
+        #{date,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="addressDetail != null">
+        #{addressDetail,jdbcType=VARCHAR},
+      </if>
+      <if test="mediaType != null">
+        #{mediaType,jdbcType=INTEGER},
+      </if>
+      <if test="typeId != null">
+        #{typeId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ymt.domain.MediaBaseInfo">
+    <!--@mbg.generated-->
+    update media_base_info
+    <set>
+      <if test="title != null">
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="describe != null">
+        `describe` = #{describe,jdbcType=VARCHAR},
+      </if>
+      <if test="date != null">
+        `date` = #{date,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="addressDetail != null">
+        address_detail = #{addressDetail,jdbcType=VARCHAR},
+      </if>
+      <if test="mediaType != null">
+        media_type = #{mediaType,jdbcType=INTEGER},
+      </if>
+      <if test="typeId != null">
+        type_id = #{typeId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=BIGINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ymt.domain.MediaBaseInfo">
+    <!--@mbg.generated-->
+    update media_base_info
+    set title = #{title,jdbcType=VARCHAR},
+      `describe` = #{describe,jdbcType=VARCHAR},
+      `date` = #{date,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      address_detail = #{addressDetail,jdbcType=VARCHAR},
+      media_type = #{mediaType,jdbcType=INTEGER},
+      type_id = #{typeId,jdbcType=INTEGER},
+      user_id = #{userId,jdbcType=BIGINT}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+
+    <insert id="saveMediaBaseInfo">
+    </insert>
+
+    <select id="selectAll" resultMap="BaseResultMap">
+    </select>
+
+    <!--auto generated by MybatisCodeHelper on 2022-07-19-->
+    <select id="findByAll" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from media_base_info
+    </select>
+
+    <!--auto generated by MybatisCodeHelper on 2022-07-19-->
+    <select id="findAllByMediaType" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from media_base_info
+        <where>
+            <if test="mediaType != null">
+                and media_type = #{mediaType,jdbcType=INTEGER}
+            </if>
+        </where>
+    </select>
+
+    <!--auto generated by MybatisCodeHelper on 2022-07-25-->
+    <select id="findAllByMediaTypeAndUserId" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from media_base_info
+        where media_type = #{mediaType,jdbcType=INTEGER} and (user_id = #{userId}
+           OR user_id = #{bindUserId})
+    </select>
+
+<!--auto generated by MybatisCodeHelper on 2022-08-02-->
+  <select id="selectTypeIdById" resultType="java.lang.Integer">
+        select type_id
+        from media_base_info
+        where id=#{id,jdbcType=VARCHAR}
+    </select>
+
+    <!--auto generated by MybatisCodeHelper on 2022-07-25-->
+</mapper>
